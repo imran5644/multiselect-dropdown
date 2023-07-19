@@ -2,7 +2,7 @@
 
 <h2>Demo </h2>
 
-![screenShot](/multiselect-package//screenshot/Screenshot.jpg)
+![screenShot](/multiselect-package/screenshot/Screenshot.jpg)
 
 <h2>Getting Started</h2>
 <h2>Features </h2>
