@@ -2,7 +2,7 @@
 
 <h2>Demo </h2>
 
-![screenShot](https://raw.github.com/imran5644/multiselect-dropdown/main/screenshot/Screenshot.png)
+![screenShot](/multiselect-package/screenshot/Screenshot%202023-07-19%20173345.jpg)
 
 <h2>Getting Started</h2>
 <h2>Features </h2>
