@@ -1,0 +1,92 @@
+.singleline {
+    display: flex;
+}
+
+.buttonStyle{
+    margin-left: 10px;
+    margin-top: 0px;
+    width: 60px;
+    height: 24px;
+    background: #029CFD;
+    border: none;
+    border-radius: 4px;
+}
+
+.buttonSize {
+    /* width: 30px; */
+    margin-left: 30px;
+}
+.buttonset{
+    margin-top: -16px;
+    height: 40px;
+}
+
+.scroll-dropdown{
+    width: 335px;
+    height: 280px;
+    overflow: scroll;
+    padding: 5px;
+    line-height: 3em;
+    border: 2px solid darkgray;
+}
+
+.scroll-dropdown .head-1 {
+    height: 30px;
+    margin-top: -10px;
+    padding-bottom: 8px;
+    margin-left: -5px;
+    padding-left: 10px;
+    background: #029CFD;
+}
+
+.togglebutton {
+    width: 350px;
+    height: 50px;
+    background: white;
+    border-radius: 4px;
+    border-color: lightgray;
+    border: 2px solid lightgray;
+    font-size: 25px;
+    text-align: left;
+    padding-left: 16px;
+    position: relative;
+}
+.triangle_down1 {
+    float: right;
+    position: relative;
+    top: 6px;
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-right: 0.1em solid black;
+    border-top: 0.1em solid black;
+    transform: rotate(135deg);
+    margin-right: 1em;
+    margin-left: 2.2em;
+  }
+
+  .groupname {
+    margin-top: -16px;
+    margin-left: 8px;
+  }
+
+  .optionlist{
+    margin-top: -32px;
+    margin-left: 8px;
+  }
+
+  .optionelement {
+    height: 30px;
+  }
+
+    input[type='checkbox'] {
+     accent-color: #029CFD;
+     color: #ffffff;
+  }
+
+  .select-all{
+    font-size: 10px;
+    font-weight: 750;
+  }
+
