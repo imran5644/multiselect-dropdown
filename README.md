@@ -2,7 +2,7 @@
 
 <h2>Demo </h2>
 
-![screenShot](/multiselect-package//screenshot/Screenshot.jpg)
+![screenShot](/multiselect-package/screenshot/Screenshot.jpg)
 
 <h2>Getting Started</h2>
 <h2>Features </h2>
@@ -11,6 +11,7 @@
 <li>Bind to custom data source</li>
 <li>Select/De-select all items</li>
 <li>Select/de-select a single items</li>
+<li>Group select/unselect</li>
 </ul>
 
 <h3>Installation</h3>
