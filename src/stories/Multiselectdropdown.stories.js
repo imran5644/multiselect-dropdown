@@ -8,7 +8,7 @@ export default {
 
 const Template = (args) => <MultiSelectDropdown {...args} />;
 
-const players = { 
+const options = { 
   "France":[{"name":"Antoine Griezmann",selected: false,id:454},
             {"name":"Paul Pogba",selected:false,id: 254}],
   "Croatia":[{"name":"Luka Modrić",selected:false,id:354},
@@ -18,25 +18,29 @@ const players = {
   };
 
 
-const handleOptionSelect = (groupIndex) => {
+const handleOptionSelect = (groupIndex, options) => {
     console.log(`Selected a member for group ${groupIndex + 1}`);
+    console.log(`${JSON.stringify(options)}`)
 };
-const handleOptionclear = (groupIndex) => {
+const handleOptionclear = (groupIndex, options) => {
   console.log(`Unselected a member for group ${groupIndex + 1}`);
+  console.log(`${JSON.stringify(options)}`)
 };
 
-const handleSelectAll = (groupIndex) => {
+const handleSelectAll = (groupIndex, options) => {
   console.log(`Selected all group member of ${groupIndex + 1}`);
+  console.log(`${JSON.stringify(options)}`);
 };
 
-const handleClear = (groupIndex) => {
+const handleClear = (groupIndex, options) => {
   console.log(`Clear checkbox for group ${groupIndex + 1}`);
+  console.log(`${JSON.stringify(options)}`)
 };
 
 
 export const MultiSelectWithCheckbox = Template.bind({});
 MultiSelectWithCheckbox.args = {
-  players,
+  options,
   onSingleSelect: handleOptionSelect,
   onSelectAll: handleSelectAll,
   onClear: handleClear,

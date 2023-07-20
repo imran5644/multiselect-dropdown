@@ -6,7 +6,6 @@ A React component which provides multi select functionality with features like s
 </p>
 
 ![screenshot](/screenshot/Screenshot1.png)
-![screenShot](/screenshot/Screenshot.jpg)
 
 <h2>Getting Started</h2>
 <h2>Features </h2>
@@ -37,20 +36,24 @@ A React component which provides multi select functionality with features like s
          <span class="pl-s1">"Argentina":</span><span class="pl-s1">[{</span><span class="pl-c1">"name"</span><span class="pl-s1">: "Lionel Messi",</span><span class="pl-c1">selected</span><span class="pl-s1">: false,</span><span class="pl-c1"> id</span><span class="pl-s1">: 404</span><span class="pl-s1">}, </span><span class="pl-s1"><br/>             {</span><span class="pl-c1">"name":</span><span class="pl-s1">"Elena Martínez",</span><span class="pl-c1">selected</span><span class="pl-s1">: false,</span><span class="pl-c1">id</span><span class="pl-s1">: 402</span><span class="pl-s1">}]</span>
          <span class="pl-s1">};</span>
        
-   <span class="pl-v">const</span><span class="pl-c1"> handleOptionSelect</span><span> = </span><span class="pl-s1">(groupIndex)</span><span> =></span><span class="pl-s1"> {</span>
-       <span class="pl-s1">console.log(`Select a single clicked for Group ${groupIndex + 1}`);</span>
+   <span class="pl-v">const</span><span class="pl-c1"> handleOptionSelect</span><span> = </span><span class="pl-s1">(groupIndex, options)</span><span> =></span><span class="pl-s1"> {</span>
+       <span class="pl-s1">console.log(`Select a single clicked for Group ${groupIndex + 1}`);<span>
+       <span class="pl-s1">console.log(`${JSON.stringify(options)}`);</span>
    <span class="pl-s1">};</span>
 
-   <span class="pl-v">const</span><span class="pl-c1"> handleSelectAll</span><span> = </span><span class="pl-s1">(groupIndex)</span><span> =></span><span> {</span>
+   <span class="pl-v">const</span><span class="pl-c1"> handleSelectAll</span><span> = </span><span class="pl-s1">(groupIndex, options)</span><span> =></span><span> {</span>
        <span class="pl-s1">console.log(`Select All clicked for Group ${groupIndex + 1}`);</span>
+       <span class="pl-s1">console.log(`${JSON.stringify(options)}`);</span>
    <span class="pl-s1">};</span>
 
-   <span class="pl-v">const</span><span class="pl-c1"> handleClear</span> <span>=</span><span class="pl-s1"> (groupIndex)</span><span> =></span><span class="pl-s1"> {</span>
+   <span class="pl-v">const</span><span class="pl-c1"> handleClear</span> <span>=</span><span class="pl-s1"> (groupIndex, options)</span><span> =></span><span class="pl-s1"> {</span>
        <span class="pl-s1">console.log(`Clear clicked for Group ${groupIndex + 1}`);</span>
+       <span class="pl-s1">console.log(`${JSON.stringify(options)}`);</span>
    <span class="pl-s1">};</span>
 
-   <span class="pl-v">const </span><span class="pl-c1">handleOptionclear</span><span> = <span><span class="pl-s1">(groupIndex)</span><span> => </span><span class="pl-s1">{</span>
-   <span class="pl-s1">console.log(`Unselected a member for group ${groupIndex + 1}`);</span>
+   <span class="pl-v">const </span><span class="pl-c1">handleOptionclear</span><span> = <span><span class="pl-s1">(groupIndex, options)</span><span> => </span><span class="pl-s1">{</span>
+       <span class="pl-s1">console.log(`Unselected a member for group ${groupIndex + 1}`);</span>
+       <span class="pl-s1">console.log(`${JSON.stringify(options)}`);</span>
    <span class="pl-s1">};</span>
 
   <span class="pl-v">return<span><span>(<span>
@@ -91,25 +94,37 @@ A React component which provides multi select functionality with features like s
 <td align="left"><code>onSelectAll</code></td>
 <td align="left"><code>function</code></td>
 <td align="left"><code>func</code></td>
-<td align="left">Callback function will invoked on onSelectAll event. Params is groupIndex.</td>
+<td align="left">Callback function will invoked on onSelectAll event. Params are groupIndex and options.</td>
 </tr>
 <tr>
 <td align="left"><code>onClear</code></td>
 <td align="left"><code>function</code></td>
 <td align="left"><code>func</code></td>
-<td align="left">Callback function will invoked on clear event. Params are groupIndex </td>
+<td align="left">Callback function will invoked on clear event. Params are groupIndex and options</td>
 </tr>
 <tr>
 <td align="left"><code>onSingleSelect</code></td>
 <td align="left"><code>boolean</code></td>
 <td align="left"><code>false</code></td>
-<td align="left">It sets <code>true</code> and behave like a normal dropdown(single select dropdown).Params are groupIndex.</td>
+<td align="left">It sets <code>true</code> and behave like a normal dropdown(single select dropdown).Params are groupIndex options.</td>
 </tr>
 <tr>
 <td align="left"><code>onSingleClear</code></td>
 <td align="left"><code>boolean</code></td>
 <td align="left"><code>true</code></td>
-<td align="left">It sets <code>false</code> and behave like a normal dropdown(unselect single  dropdown).Params are groupIndex.</td>
+<td align="left">It sets <code>false</code> and behave like a normal dropdown(unselect single  dropdown).Params are groupIndex and options.</td>
+</tr>
+<tr>
+<td align="left"><code>groupIndex</code></td>
+<td align="left"><code>Index</code></td>
+<td align="left"><code>Number</code></td>
+<td align="left">It gives selected group or selected dropdown Index.</td>
+</tr>
+<tr>
+<td align="left"><code>options(in call Functions)</code></td>
+<td align="left"><code>{}</code></td>
+<td align="left"><code>object</code></td>
+<td align="left">It Will give you the entire object with selected or unselected values of dropdown.</td>
 </tr>
 <tr>
 <td align="left"><code>showCheckbox</code></td>

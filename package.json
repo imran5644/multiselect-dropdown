@@ -1,6 +1,6 @@
 {
   "name": "multiselectpackage",
-  "version": "7.1.20",
+  "version": "7.1.21",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -59,6 +59,7 @@
     "multiselect-react-dropdown",
     "react-multiselect-dropdown",
     "multiselect react dropdown",
-    "react multiselect dropdown"
+    "react multiselect dropdown",
+    "grouping"
   ]
 }

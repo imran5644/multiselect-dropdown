@@ -4,19 +4,43 @@ import '../../../src/multiselectdropdown.css';
  
 export const MultiSelectDropdown = ({ options, onSingleSelect, onSelectAll, onClear, onSingleClear }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  
-  const playersMap = Object.entries(options).map((player,id) => {
+
+  const selectMap = Object.entries(options).map((option) => {
     return {
-      country: player[0],
-      cities:  player[1].map((city) => ({
-        ...city
+      country: option[0],
+      name:  option[1].map((name) => ({
+        ...name
       }))
     }
   });
-
  
-  const [groupData, setGroupData] = useState(playersMap);
+  const [groupData, setGroupData] = useState(selectMap);
 
+  // const convertNestedArrayToFlatObject = (nestedArray) => {
+  //   const flatObject = {};
+  //   for (const countryObject of nestedArray) {
+  //     const country = countryObject.country;
+  //     const names = countryObject.name;
+  //     if (!flatObject.hasOwnProperty(country)) {
+  //       flatObject[country] = [];
+  //     }
+  //     flatObject[country].push(...names);
+  //   }
+  //   return flatObject;
+  // };
+
+  const convertNestedArrayToFlatObject = (nestedArray) => {
+    const flatObject = {};
+    for (const countryObject of nestedArray) {
+      const country = countryObject.country;
+      const names = countryObject.name;
+      if (!flatObject.hasOwnProperty(country)) {
+        flatObject[country] = [];
+      }
+      flatObject[country].unshift(...names);
+    }
+    return flatObject;
+  };
 
   // const handleOptionSelect = (groupIndex, optionIndex, groupData) => {
   // const selectedName = groupData[groupIndex].name;
@@ -46,27 +70,27 @@ export const MultiSelectDropdown = ({ options, onSingleSelect, onSelectAll, onCl
 
  const handleOptionSelect = (groupIndex, optionIndex, groupData) => {
   const selectedName = groupData[groupIndex].country;
-  const selectedOptionId = groupData[groupIndex].cities[optionIndex].id;
+  const selectedOptionId = groupData[groupIndex].name[optionIndex].id;
     const checkedSingleBox = groupData.map(data => ({
       ...data,
-      cities: data.country === selectedName
-      ? data.cities.map(item => {
+      name: data.country === selectedName
+      ? data.name.map(item => {
         if (item.id === selectedOptionId) {
           return {...item, selected: !item.selected}; 
         } else {
           return item;
         }
     })
-        : data.cities
+        : data.name
     }));
-    
+    let opt = convertNestedArrayToFlatObject(checkedSingleBox);
     setGroupData(checkedSingleBox);
-    if(checkedSingleBox[groupIndex].cities[optionIndex].selected === true){
-      onSingleSelect(groupIndex);
-      console.log(selectedName,  checkedSingleBox[groupIndex].cities[optionIndex].name );
+    if(checkedSingleBox[groupIndex].name[optionIndex].selected === true){
+      onSingleSelect(groupIndex, opt);
+      console.log(selectedName,  checkedSingleBox[groupIndex].name[optionIndex].name );
     }else {
-      onSingleClear(groupIndex)
-      console.log(selectedName, checkedSingleBox[groupIndex].cities[optionIndex].name );
+      onSingleClear(groupIndex, opt)
+      console.log(selectedName, checkedSingleBox[groupIndex].name[optionIndex].name );
     }
   }; 
 
@@ -90,15 +114,16 @@ export const MultiSelectDropdown = ({ options, onSingleSelect, onSelectAll, onCl
     const selectedName = groupData[groupIndex].country;
     const checkedbox = groupData.map(data => ({
       ...data,
-      cities: data.country === selectedName
-        ? data.cities.map(att => ({
+      name: data.country === selectedName
+        ? data.name.map(att => ({
           ...att,
           selected: true
         }))
-        : data.cities
+        : data.name
     }));
+    let opt = convertNestedArrayToFlatObject(checkedbox);
     setGroupData(checkedbox);
-    onSelectAll(groupIndex);
+    onSelectAll(groupIndex, opt);
   };
 
   // const handleClear = (groupIndex) => {
@@ -119,15 +144,16 @@ export const MultiSelectDropdown = ({ options, onSingleSelect, onSelectAll, onCl
     const selectedName = groupData[groupIndex].country;
     const uncheckedbox = groupData.map(data => ({
       ...data,
-      cities: data.country === selectedName
-        ? data.cities.map(att => ({
+      name: data.country === selectedName
+        ? data.name.map(att => ({
           ...att,
           selected: false
         }))
-        : data.cities
+        : data.name
     }));
+    let opt = convertNestedArrayToFlatObject(uncheckedbox);
     setGroupData(uncheckedbox);
-    onClear(groupIndex);
+    onClear(groupIndex, opt);
   };
 
   const toggleDropdown = () => {
@@ -193,7 +219,7 @@ return (
           </div>
         </div>
         <div className="optionlist">
-        {group && group.cities.map((option, optionIndex) => (
+        {group && group.name.map((option, optionIndex) => (
           <div className="optionelement">
           <label key={optionIndex}>
             <input
