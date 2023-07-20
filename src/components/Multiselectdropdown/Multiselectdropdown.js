@@ -2,10 +2,10 @@ import React, { useState } from "react";
 
 import '../../../src/multiselectdropdown.css';
  
-export const MultiSelectDropdown = ({ players, onSingleSelect, onSelectAll, onClear, onSingleClear }) => {
+export const MultiSelectDropdown = ({ options, onSingleSelect, onSelectAll, onClear, onSingleClear }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   
-  const playersMap = Object.entries(players).map((player,id) => {
+  const playersMap = Object.entries(options).map((player,id) => {
     return {
       country: player[0],
       cities:  player[1].map((city) => ({

@@ -1,6 +1,6 @@
 {
   "name": "multiselectpackage",
-  "version": "7.0.0",
+  "version": "7.1.20",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -45,5 +45,20 @@
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  }
+  },
+  "keywords": [
+    "npm",
+    "react",
+    "dropdown",
+    "multiselect",
+    "multilist",
+    "list",
+    "select",
+    "component",
+    "autocomplete",
+    "multiselect-react-dropdown",
+    "react-multiselect-dropdown",
+    "multiselect react dropdown",
+    "react multiselect dropdown"
+  ]
 }
