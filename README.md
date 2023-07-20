@@ -5,7 +5,9 @@
 A React component which provides multi select functionality with features like selection checkbox, single select dropdown and grouping features.
 </p>
 
-![screenshot](https://raw.github.com/imran5644/multiselect-dropdown/main/screenshot/Screenshot1.png)
+![screenshot](/screenshot/Screenshot1.png)
+![screenShot](/screenshot/Screenshot.jpg)
+
 <h2>Getting Started</h2>
 <h2>Features </h2>
 <ul>
@@ -149,4 +151,3 @@ A React component which provides multi select functionality with features like s
 
 <h2>License  </h2>
 <p>MIT License.</p>
-
