@@ -52,7 +52,7 @@ A React component which provides multi select functionality with features like s
        <span class="pl-s1">console.log(`${JSON.stringify(options)}`);</span>
    <span class="pl-s1">};</span>
 
-   <span class="pl-v">const</span><span class="pl-c1"> handleSelectAll</span><span> = </span><span class="pl-s1">(groupIndex, options)</span><span> =></span><span> {</span>
+   <span class="pl-v">const</span><span class="pl-c1"> handleSelect</span><span> = </span><span class="pl-s1">(groupIndex, options)</span><span> =></span><span> {</span>
        <span class="pl-s1">console.log(`Select All clicked for Group ${groupIndex + 1}`);</span>
        <span class="pl-s1">console.log(`${JSON.stringify(options)}`);</span>
    <span class="pl-s1">};</span>
@@ -71,7 +71,7 @@ A React component which provides multi select functionality with features like s
     <span><</span><span>></span>
         <span class="pl-ent"><span><</span>MultiSelectDropdown </span>
         <span class="pl-c1">options</span><span class="pl-c1">={options}  </span>
-        <span class="pl-c1">onSelectAll</span><span class="pl-c1">={handleSelectAll} </span>
+        <span class="pl-c1">onSelect</span><span class="pl-c1">={handleSelect} </span>
         <span class="pl-c1">onClear</span><span class="pl-c1">={handleClear} </span>
         <span class="pl-c1">onSingleClear</span><span class="pl-c1">={handleOptionclear}</span>
         <span class="pl-c1">backgroundColor</span><span class="pl-c1">={backgroundColor} </span>
@@ -107,10 +107,10 @@ A React component which provides multi select functionality with features like s
 <td align="left">Dropdown options</td>
 </tr>
 <tr>
-<td align="left"><code>onSelectAll</code></td>
+<td align="left"><code>onSelect</code></td>
 <td align="left"><code>function</code></td>
 <td align="left"><code>func</code></td>
-<td align="left">Callback function will invoked on onSelectAll event. Params are groupIndex and options.</td>
+<td align="left">Callback function will invoked on onSelect event. Params are groupIndex and options.</td>
 </tr>
 <tr>
 <td align="left"><code>onClear</code></td>
@@ -134,19 +134,13 @@ A React component which provides multi select functionality with features like s
 <td align="left"><code>options(in callback Functions)</code></td>
 <td align="left"><code>{}</code></td>
 <td align="left"><code>object</code></td>
-<td align="left">It Will give you the entire object with selected or unselected values of dropdown.</td>
-</tr>
-<tr>
-<td align="left"><code>showCheckbox</code></td>
-<td align="left"><code>bool</code></td>
-<td align="left"><code>false</code></td>
-<td align="left">To display checkbox option in the dropdown</td>
+<td align="left">It will give you the entire object with selected or unselected values of dropdown.</td>
 </tr>
 <tr>
 <td align="left"><code>displayValue</code></td>
 <td align="left"><code>string</code></td>
 <td align="left"><code>value</code></td>
-<td align="left">Property name in the object to display in the dropdown. Refer <code>Basic Usage</code> section</td>
+<td align="left">Property name and selected should be in the object to display in the dropdown. Refer <code>Basic Usage</code> section</td>
 </tr>
 <tr>
 <td align="left"><code>backgroundColor</code></td>

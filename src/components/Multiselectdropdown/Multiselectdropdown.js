@@ -10,7 +10,7 @@ export const MultiSelectDropdown = ({
   color, 
   checkboxcolor,
   disable, 
-  onSelectAll, 
+  onSelect, 
   onClear, 
   onSingleClear 
   }) => {
@@ -106,7 +106,7 @@ export const MultiSelectDropdown = ({
     let opt = convertNestedArrayToFlatObject(checkedSingleBox);
     setGroupData(checkedSingleBox);
     if(checkedSingleBox[groupIndex].name[optionIndex].selected === true){
-      onSelectAll(groupIndex, opt);
+      onSelect(groupIndex, opt);
       console.log(selectedName,  checkedSingleBox[groupIndex].name[optionIndex].name );
     }else {
       onSingleClear(groupIndex, opt)
@@ -143,7 +143,7 @@ export const MultiSelectDropdown = ({
     }));
     let opt = convertNestedArrayToFlatObject(checkedbox);
     setGroupData(checkedbox);
-    onSelectAll(groupIndex, opt);
+    onSelect(groupIndex, opt);
   };
 
   // const handleClear = (groupIndex) => {
