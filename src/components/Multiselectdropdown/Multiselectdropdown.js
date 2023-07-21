@@ -1,9 +1,29 @@
 import React, { useState } from "react";
-
+import PropTypes from "prop-types";
 import '../../../src/multiselectdropdown.css';
  
-export const MultiSelectDropdown = ({ options, onSingleSelect, onSelectAll, onClear, onSingleClear }) => {
+export const MultiSelectDropdown = ({ 
+  options, 
+  label, 
+  label2, 
+  backgroundColor, 
+  color, 
+  checkboxcolor,
+  disable, 
+  onSelectAll, 
+  onClear, 
+  onSingleClear 
+  }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  
+  const buttoncolorStyle = {
+    color: color ? color : "#000000",
+    backgroundColor: backgroundColor ? backgroundColor : "#029CFD",
+  };
+
+  const buttonLabellength = (label) => {
+    return label ? label.length < 10 ? label : "" : ""
+  };
 
   const selectMap = Object.entries(options).map((option) => {
     return {
@@ -86,7 +106,7 @@ export const MultiSelectDropdown = ({ options, onSingleSelect, onSelectAll, onCl
     let opt = convertNestedArrayToFlatObject(checkedSingleBox);
     setGroupData(checkedSingleBox);
     if(checkedSingleBox[groupIndex].name[optionIndex].selected === true){
-      onSingleSelect(groupIndex, opt);
+      onSelectAll(groupIndex, opt);
       console.log(selectedName,  checkedSingleBox[groupIndex].name[optionIndex].name );
     }else {
       onSingleClear(groupIndex, opt)
@@ -200,7 +220,6 @@ export const MultiSelectDropdown = ({ options, onSingleSelect, onSelectAll, onCl
 //   );
 // };
 
-
 return (
   <div>
     <button className="togglebutton" onClick={toggleDropdown}><span className="team-width">Select(s)</span><div id="dialog2" className="triangle_down1"></div></button>
@@ -208,22 +227,37 @@ return (
     <div className="scroll-dropdown">
     <p className="head-1">Select(s)</p>
     {groupData && groupData.map((group, groupIndex) => (
-      <div key={groupIndex}>
+      <div key={group.country}>
         <div className="singleline">
           <div>
           <p className="groupname">{group.country}</p>
           </div>
           <div className="buttonset">
-          <button className="buttonStyle buttonSize" onClick={() => handleSelectAll(groupData, groupIndex)}>All</button>
-          <button className="buttonStyle" onClick={() => handleClear(groupIndex)}>Clear</button>
+          <button style={buttoncolorStyle} 
+          className="buttonStyle buttonSize" 
+          disabled={disable ? disable : false}
+          onClick={() =>
+           handleSelectAll(groupData, groupIndex)
+           }>
+          {buttonLabellength(label) ? label : "All"}
+          </button>
+          <button 
+          style={buttoncolorStyle} 
+          className="buttonStyle"
+          disabled={disable ? disable : false} 
+          onClick={() => 
+          handleClear(groupIndex)}>
+          {buttonLabellength(label2) ? label2 : "Clear"}
+          </button>
           </div>
         </div>
         <div className="optionlist">
         {group && group.name.map((option, optionIndex) => (
-          <div className="optionelement">
-          <label key={optionIndex}>
+          <div className="optionelement" key={option.id}>
+          <label>
             <input
               type="checkbox"
+              style= {{accentColor: checkboxcolor ? checkboxcolor :"#029CFD"}}
               checked={option.selected ? true : false} 
               onChange={() => handleOptionSelect(groupIndex, optionIndex, groupData)}
             />
@@ -241,3 +275,12 @@ return (
 );
 };
 
+MultiSelectDropdown.propTypes = {
+  label: PropTypes.string,
+  label2: PropTypes.string,
+  checkboxcolor: PropTypes.string,
+  backgroundColor: PropTypes.string,
+  color: PropTypes.string,
+  disable: PropTypes.bool,
+  handleClick: PropTypes.func,
+}

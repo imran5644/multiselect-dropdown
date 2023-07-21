@@ -6,7 +6,7 @@ A React component which provides multi select functionality with features like s
 </p>
 
 ![screenshot](/screenshot/Screenshot1.png)
-
+![screenshot](/screenshot/Screenshot2.png)
 <h2>Getting Started</h2>
 <h2>Features </h2>
 <ul>
@@ -15,6 +15,11 @@ A React component which provides multi select functionality with features like s
 <li>Select/De-select all items</li>
 <li>Select/de-select a single items</li>
 <li>Group select/unselect</li>
+<li>You can Change the button text color</li>
+<li>You can Change the button background color</li>
+<li>You can Change the Checkbox background color on select</li>
+<li>You can Add Texts in the buttons</li>
+<li>You can Disable both the buttons</li>
 </ul>
 
 <h3>Installation</h3>
@@ -35,6 +40,12 @@ A React component which provides multi select functionality with features like s
         <span class="pl-s1">"Croatia"</span><span class="pl-s1">:</span><span class="pl-s1">[</span><span class="pl-s1">{</span><span class="pl-c1">"name"</span><span class="pl-s1">: "Luka Modrić",</span><span class="pl-c1">selected</span><span class="pl-s1">: false,</span><span class="pl-c1">id</span><span class="pl-s1">: 354</span><span class="pl-s1">},</span><br/><span class="pl-s1">           {</span><span class="pl-c1">"name"</span><span class="pl-s1">: "Ivan Rakitić",</span><span class="pl-c1">selected</span><span class="pl-s1">: false,</span><span class="pl-c1"> id</span><span class="pl-s1">: 442</span><span class="pl-s1">}],</span>
          <span class="pl-s1">"Argentina":</span><span class="pl-s1">[{</span><span class="pl-c1">"name"</span><span class="pl-s1">: "Lionel Messi",</span><span class="pl-c1">selected</span><span class="pl-s1">: false,</span><span class="pl-c1"> id</span><span class="pl-s1">: 404</span><span class="pl-s1">}, </span><span class="pl-s1"><br/>             {</span><span class="pl-c1">"name":</span><span class="pl-s1">"Elena Martínez",</span><span class="pl-c1">selected</span><span class="pl-s1">: false,</span><span class="pl-c1">id</span><span class="pl-s1">: 402</span><span class="pl-s1">}]</span>
          <span class="pl-s1">};</span>
+
+  <span class="pl-v">const </span><span class="pl-c1">backgroundColor</span> <span>=</span><span>"red";</span> 
+  <span class="pl-v">const </span><span class="pl-c1">label</span> <span>=</span><span>"Select";</span> 
+  <span class="pl-v">const </span><span class="pl-c1">label2</span> <span>=</span><span>"Unselect";</span> 
+  <span class="pl-v">const </span><span class="pl-c1">color</span> <span>=</span><span>"green";</span> 
+  <span class="pl-v">const </span><span class="pl-c1">disable</span> <span>=</span><span>true;</span> 
        
    <span class="pl-v">const</span><span class="pl-c1"> handleOptionSelect</span><span> = </span><span class="pl-s1">(groupIndex, options)</span><span> =></span><span class="pl-s1"> {</span>
        <span class="pl-s1">console.log(`Select a single clicked for Group ${groupIndex + 1}`);<span>
@@ -60,10 +71,15 @@ A React component which provides multi select functionality with features like s
     <span><</span><span>></span>
         <span class="pl-ent"><span><</span>MultiSelectDropdown </span>
         <span class="pl-c1">options</span><span class="pl-c1">={options}  </span>
-        <span class="pl-c1">onSingleSelect</span><span class="pl-c1">={ handleOptionSelect} </span>
         <span class="pl-c1">onSelectAll</span><span class="pl-c1">={handleSelectAll} </span>
         <span class="pl-c1">onClear</span><span class="pl-c1">={handleClear} </span>
         <span class="pl-c1">onSingleClear</span><span class="pl-c1">={handleOptionclear}</span>
+        <span class="pl-c1">backgroundColor</span><span class="pl-c1">={backgroundColor} </span>
+        <span class="pl-c1">label</span><span class="pl-c1">={label} </span>
+        <span class="pl-c1">label2</span><span class="pl-c1">={label2} </span>
+        <span class="pl-c1">color</span><span class="pl-c1">={color} </span>
+        <span class="pl-c1">checkboxcolor</span><span class="pl-c1">={checkboxcolor}</span>
+        <span class="pl-c1">disable</span><span class="pl-c1">={disable}</span>
         <span class="pl-c1">/></span>
      <span class="pl-s1"><</span><span class="pl-s1">/</span><span class="pl-s1">></span>
     <span class="pl-s1">);</span>
@@ -103,12 +119,6 @@ A React component which provides multi select functionality with features like s
 <td align="left">Callback function will invoked on clear event. Params are groupIndex and options</td>
 </tr>
 <tr>
-<td align="left"><code>onSingleSelect</code></td>
-<td align="left"><code>boolean</code></td>
-<td align="left"><code>false</code></td>
-<td align="left">It sets <code>true</code> and behave like a normal dropdown(single select dropdown).Params are groupIndex options.</td>
-</tr>
-<tr>
 <td align="left"><code>onSingleClear</code></td>
 <td align="left"><code>boolean</code></td>
 <td align="left"><code>true</code></td>
@@ -121,7 +131,7 @@ A React component which provides multi select functionality with features like s
 <td align="left">It gives selected group or selected dropdown Index.</td>
 </tr>
 <tr>
-<td align="left"><code>options(in call Functions)</code></td>
+<td align="left"><code>options(in callback Functions)</code></td>
 <td align="left"><code>{}</code></td>
 <td align="left"><code>object</code></td>
 <td align="left">It Will give you the entire object with selected or unselected values of dropdown.</td>
@@ -139,10 +149,47 @@ A React component which provides multi select functionality with features like s
 <td align="left">Property name in the object to display in the dropdown. Refer <code>Basic Usage</code> section</td>
 </tr>
 <tr>
-<td align="left"><code>groupBy</code></td>
+<td align="left"><code>backgroundColor</code></td>
 <td align="left"><code>string</code></td>
 <td align="left"><code>''</code></td>
-<td align="left">Group the popup list items with the corresponding category by the property name in the object</td>
+<td align="left">backgroundColor will set the new background color of both buttons(All, clear). if you want to change the background color then pass the color in props and if you don't want to change the background color then don't use the backgroundColor field  as props in component</td>
+</tr>
+<tr>
+<td align="left"><code>label</code></td>
+<td align="left"><code>string</code></td>
+<td align="left"><code>''</code></td>
+<td align="left">label will set the new text of button(All). if you want to change the text then pass the text in props and if you don't want to change the text then don't use the label field as props in component</td>
+</tr>
+<tr>
+<td align="left"><code>label2</code></td>
+<td align="left"><code>string</code></td>
+<td align="left"><code>''</code></td>
+<td align="left">label2 will set the new text of button(Clear). if you want to change the text then pass the text in props and if you don't want to change the text then don't use the label2 field as props in component</td>
+</tr>
+</tr>
+<tr>
+<td align="left"><code>textLimit</code></td>
+<td align="left"><code>string</code></td>
+<td align="left"><code>''</code></td>
+<td align="left">label and label2 have text limit of length less than 9 as it will not fit in the button if it exceeds.</td>
+</tr>
+<tr>
+<td align="left"><code>color</code></td>
+<td align="left"><code>string</code></td>
+<td align="left"><code>''</code></td>
+<td align="left">color will set the new color of text of both buttons(All, clear). if you want to change the text color pass the color in props and if you don't want to change the color then don't use the color field as props in component</td>
+</tr>
+<tr>
+<td align="left"><code>checkboxcolor</code></td>
+<td align="left"><code>string</code></td>
+<td align="left"><code>''</code></td>
+<td align="left">checkboxcolor will set the checkbox background color. if you want to change the checkbox background color pass the color in props and if you don't want to change the text color then don't use the checkboxcolor field as props in component</td>
+</tr>
+<tr>
+<td align="left"><code>disable</code></td>
+<td align="left"><code>bool</code></td>
+<td align="left"><code>''</code></td>
+<td align="left">disable will disable both the buttons(All, Clear) if you want to disable just pass the bool value as true in props and if you don't want to disable the button then don't use the disable field as props in component </td>
 </tr>
 </tbody>
 </table>
