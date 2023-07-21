@@ -2,7 +2,7 @@
 
 <h2>Description</h2>
 <p>
-A React component which provides multi select functionality with features like selection checkbox, single select dropdown and grouping features.
+A React component which provides multi select functionality with features like selection checkbox, Change the button text, color, background and disable button, single select dropdown and grouping features.
 </p>
 
 ![screenshot](/screenshot/Screenshot1.png)
