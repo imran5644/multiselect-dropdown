@@ -23,7 +23,7 @@ const handleOptionclear = (groupIndex, options) => {
   console.log(`${JSON.stringify(options)}`)
 };
 
-const handleSelectAll = (groupIndex, options) => {
+const handleSelect = (groupIndex, options) => {
   console.log(`Selected group member of ${groupIndex + 1}`);
   console.log(`${JSON.stringify(options)}`);
 };
@@ -36,7 +36,7 @@ const handleClear = (groupIndex, options) => {
 export const MultiSelectWithCheckbox = Template.bind({});
 MultiSelectWithCheckbox.args = {
   options,
-  onSelect: handleSelectAll,
+  onSelect: handleSelect,
   onClear: handleClear,
   onSingleClear: handleOptionclear,
   backgroundColor: "red",

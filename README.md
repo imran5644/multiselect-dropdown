@@ -47,13 +47,8 @@ A React component which provides multi select functionality with features like s
   <span class="pl-v">const </span><span class="pl-c1">color</span> <span>=</span><span>"green";</span> 
   <span class="pl-v">const </span><span class="pl-c1">disable</span> <span>=</span><span>true;</span> 
        
-   <span class="pl-v">const</span><span class="pl-c1"> handleOptionSelect</span><span> = </span><span class="pl-s1">(groupIndex, options)</span><span> =></span><span class="pl-s1"> {</span>
-       <span class="pl-s1">console.log(`Select a single clicked for Group ${groupIndex + 1}`);<span>
-       <span class="pl-s1">console.log(`${JSON.stringify(options)}`);</span>
-   <span class="pl-s1">};</span>
-
    <span class="pl-v">const</span><span class="pl-c1"> handleSelect</span><span> = </span><span class="pl-s1">(groupIndex, options)</span><span> =></span><span> {</span>
-       <span class="pl-s1">console.log(`Select All clicked for Group ${groupIndex + 1}`);</span>
+       <span class="pl-s1">console.log(`Select clicked for Group ${groupIndex + 1}`);</span>
        <span class="pl-s1">console.log(`${JSON.stringify(options)}`);</span>
    <span class="pl-s1">};</span>
 
